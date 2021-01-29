@@ -4,7 +4,7 @@ LABEL maintainer="sameer@damagehead.com"
 ENV SQUID_VERSION=3.5.27 \
     SQUID_CACHE_DIR=/var/spool/squid \
     SQUID_LOG_DIR=/var/log/squid \
-    SQUID_USER=proxy
+    SQUID_USER=proxy \
     SQUID_SQUISH_VERSION=0.0.18
 
 RUN apt-get update \
