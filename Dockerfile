@@ -12,7 +12,7 @@ RUN apt-get update \
  && DEBIAN_FRONTEND=noninteractive apt-get install -y squid=${SQUID_VERSION}* curl \
  && rm -rf /var/lib/apt/lists/*
 
-RUN sed -i.bak /etc/squid/squid.conf -e '/^[ \t]*#/d' -e '/^\t*$/d
+RUN sed -i.bak /etc/squid/squid.conf -e '/^[ \t]*#/d' -e '/^\t*$/d'
 
 RUN curl https://www.mcgill.org.za/software/squish/squish-${SQUID_SQUISH_VERSION}.tar.gz -o squish-${SQUID_SQUISH_VERSION}.tar.gz  \
  && tar xzf squish-${SQUID_SQUISH_VERSION}.tar.gz \
