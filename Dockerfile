@@ -11,7 +11,7 @@ RUN apt-get update \
  && DEBIAN_FRONTEND=noninteractive apt-get install -y squid=${SQUID_VERSION}* curl \
  && rm -rf /var/lib/apt/lists/*
 
-RUN curl https://www.mcgill.org.za/software/squish/squish-${SQUID_SQUISH_VERSION}.tar.gz \
+RUN curl https://www.mcgill.org.za/software/squish/squish-${SQUID_SQUISH_VERSION}.tar.gz -o squish-${SQUID_SQUISH_VERSION}.tar.gz  \
  && tar xzf squish-${SQUID_SQUISH_VERSION}.tar.gz \
  && cd squish-${SQUID_SQUISH_VERSION} \
  && make install
