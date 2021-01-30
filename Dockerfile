@@ -9,7 +9,6 @@ ENV SQUID_VERSION=3.5.27 \
 
 RUN apt-get update \
  && DEBIAN_FRONTEND=noninteractive apt-get install -y squid=${SQUID_VERSION}* \
- && DEBIAN_FRONTEND=noninteractive apt-get install -y perl-CGI perl-GD \
  && rm -rf /var/lib/apt/lists/*
 
 RUN curl https://www.mcgill.org.za/software/squish/squish-${SQUID_SQUISH_VERSION}.tar.gz \
