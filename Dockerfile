@@ -19,6 +19,7 @@ RUN curl https://www.mcgill.org.za/software/squish/squish-${SQUID_SQUISH_VERSION
  && install squish.pl squish.cron.sh squish.cgi squish.pm rrdsquish.pm apache-squish.conf /usr/local/squish \
  && install squish.conf /etc/squid/ \
  && cd /usr/local/squish \
+ && sed -e "s/use rrdsquish;/use lib \".\/rrdsquish.pm\";/g" -e "s/do \"squish.pm\"/do \".\/squish.pm\"/g" -i .bak squish.pl
  && export PERL5LIB=/usr/local/squish \
  && /usr/local/squish/squish.pl --install \
  && touch /etc/squid/squished \
