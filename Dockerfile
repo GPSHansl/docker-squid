@@ -13,8 +13,9 @@ RUN apt-get update \
  && rm -rf /var/lib/apt/lists/*
 
 RUN sed -i.bak /etc/squid/squid.conf \
- -e 's/^#acl localnet src 172.16.0.0\/12/#acl localnet src 172.16.0.0\/12/' \
- -e 's/^#acl localnet src 192.168.0.0\/16/#acl localnet src 192.168.0.0\/16/' \
+ -e 's/^#acl localnet src 172.16.0.0\/12/acl localnet src 172.16.0.0\/12/' \
+ -e 's/^#acl localnet src 192.168.0.0\/16/acl localnet src 192.168.0.0\/16/' \
+ -e 's/^#http_access allow localnet/http_access allow localnet/' \
  -e '/^[ \t]*#/d' -e '/^\t*$/d'
 
 # RUN curl https://www.mcgill.org.za/software/squish/squish-${SQUID_SQUISH_VERSION}.tar.gz -o squish-${SQUID_SQUISH_VERSION}.tar.gz  \
